@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: -20px;
+}
+
+.app {
+    width: 970px;
+}
+
+/* container */
+#product-table-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* wrapper */
+.product-table-wrapper {
+    max-width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* header */
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+thead th {
+    padding: 9px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* row */
+tbody td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* hover row */
+tbody tr:hover {
+    background: #f1f5ff;
+}
+
+/* input */
+input[type="text"],
+input[type="number"] {
+    height: 24px;
+    width: 97%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* quantity box */
+.quantity-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quantity-box button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quantity-box button:hover {
+    background: #d1d5db;
+}
+
+/* line total */
+.line-total {
+    
+    font-weight: bold;
+    color: #16a34a;
+}
+
+/* footer */
+.table-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+}
+
+.grand-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #111;
+}
+
+.grand-total span:last-child {
+    color: #dc2626;
+    margin-left: 10px;
+}
+
+/* disable state */
+input:disabled {
+    background: #f3f4f6;
+    cursor: not-allowed;
+}
+
+/* nút thêm mới */
+.add-row-btn {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-left: 10px;
+}
+
+.add-row-btn:hover {
+    background: #1d4ed8;
+}
+
+.delete-row {
+    background: #df4f4f;
+    color: rgb(250, 243, 243);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-row:hover {
+    background: #dc2626;
+}
+
+@media print {
+    .add-row-btn {
+        display: none;
+    }
+}

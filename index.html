@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title style="margin-left: 30%;">Quản lý bán hàng TLA</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Khung chính của ứng dụng -->
+    <main class="app">
+
+        <!-- Tiêu đề (nếu sau này không dùng có thể bỏ) -->
+        <header class="app-header">
+            <h2 style="margin-left: 30%;">Mỹ phẩm Linh Anh</h2>
+        </header>
+        <div style="margin-top: 50px">
+            <span style="margin-left: 50px">Khách hàng: </span>
+            <input type="text" style="width: 55px; height: 18px; font-size: 14px; border: none;" />
+        </div>
+
+        <p style="margin-left: 50px; margin-top: 10px">
+            Địa chỉ:
+            <textarea type="text" ;
+                style="border: none; width: 550px; font-size: 15px; display: flex; top: 29; margin-top: 5px; border-radius: 5px;"
+                rows="4"></textarea>
+        </p>
+
+        <!-- JS sẽ render bảng vào đây -->
+        <section id="product-table-container"></section>
+
+    </main>
+
+    <script type="module" src="./js/app.js"></script>
+    <p style="margin-left: 250px;">Chúc quý khách mua hàng vui vẻ!</p>
+</body>
+
+</html>
