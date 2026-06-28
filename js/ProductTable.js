@@ -54,14 +54,56 @@ export default class ProductTable {
         const footer = document.createElement("div");
         footer.className = "table-footer";
 
+        // footer.innerHTML = `
+        //     <div class="grand-total">
+        //         <span>Tổng tiền :</span>
+        //         <span id="grandTotal">0 đ</span>
+        //     </div>
+        // `;
+
         footer.innerHTML = `
-            <div class="grand-total">
-                <span>Tổng tiền :</span>
+        <div class="summary-box">
+
+            <div class="summary-row">
+                <span>Tổng tiền:</span>
                 <span id="grandTotal">0 đ</span>
             </div>
+
+            <div class="summary-row">
+                <span>Khách đưa:</span>
+                <input
+                    type="text"
+                    id="customerPaid"
+                    placeholder="Nhập số tiền khách đưa"
+                    >
+            </div>
+
+            <div class="summary-row">
+                <span>Tiền trả lại:</span>
+                <span id="changeMoney">0 đ</span>
+            </div>
+
+        </div>
         `;
 
         this.totalEl = footer.querySelector("#grandTotal");
+
+        this.customerPaidEl = footer.querySelector("#customerPaid");
+        this.changeMoneyEl = footer.querySelector("#changeMoney");
+        this.customerPaidEl.addEventListener("input", (e) => {
+
+            // Chỉ giữ lại số
+            let value = e.target.value.replace(/\D/g, "");
+
+            // Định dạng 200000 -> 200.000
+            if (value !== "") {
+                e.target.value = Number(value).toLocaleString("vi-VN");
+            } else {
+                e.target.value = "";
+            }
+
+            this.updateGrandTotal();
+        });
 
         wrapper.appendChild(footer);
 
@@ -147,6 +189,22 @@ export default class ProductTable {
     /* =========================
         TOTAL CALC
     ========================== */
+    // updateGrandTotal() {
+
+    //     let total = 0;
+
+    //     this.rows.forEach(row => {
+
+    //         const el = row.getElement().querySelector(".line-total");
+
+    //         const value = Number(el?.dataset?.raw || 0);
+
+    //         total += value;
+    //     });
+
+    //     this.totalEl.textContent =
+    //         total.toLocaleString("vi-VN") + " đ";
+    // }
     updateGrandTotal() {
 
         let total = 0;
@@ -160,9 +218,30 @@ export default class ProductTable {
             total += value;
         });
 
+        // Tổng tiền
         this.totalEl.textContent =
             total.toLocaleString("vi-VN") + " đ";
+
+        // Tiền khách đưa
+        const paid = Number(
+            this.customerPaidEl.value.replace(/\./g, "")
+        ) || 0;
+        const change = paid - total;
+
+        if (change >= 0) {
+
+            this.changeMoneyEl.textContent =
+                change.toLocaleString("vi-VN") + " đ";
+
+        } else {
+
+            this.changeMoneyEl.textContent =
+                "Thiếu " +
+                Math.abs(change).toLocaleString("vi-VN") +
+                " đ";
+        }
     }
+
 
     /* =========================
         GETTERS

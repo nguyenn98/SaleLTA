@@ -94,7 +94,7 @@ input:focus {
 
 /* line total */
 .line-total {
-    
+
     font-weight: bold;
     color: #16a34a;
 }
@@ -161,4 +161,83 @@ input:disabled {
     .add-row-btn {
         display: none;
     }
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary-box {
+    width: 380px;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 18px;
+
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 14px;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+}
+
+.summary-row span:first-child {
+    font-weight: 600;
+    color: #555;
+}
+
+.summary-row span:last-child {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e53935;
+}
+
+/* Ô nhập tiền */
+
+#customerPaid {
+    width: 170px;
+
+    padding: 8px 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+    text-align: right;
+
+    transition: .2s;
+}
+
+#customerPaid:focus {
+    outline: none;
+    border-color: #1976d2;
+
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, .15);
+}
+
+/* Tiền trả lại */
+
+#changeMoney {
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Tổng tiền */
+
+#grandTotal {
+    color: #d32f2f;
+    font-size: 22px;
+    font-weight: bold;
 }
