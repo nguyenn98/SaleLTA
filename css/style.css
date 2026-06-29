@@ -6,7 +6,10 @@ body {
 }
 
 .app {
-    width: 970px;
+    padding: 15px;
+    margin-left: 4px;
+    width: 94%;
+    height: 95%;
 }
 
 /* container */
@@ -94,7 +97,7 @@ input:focus {
 
 /* line total */
 .line-total {
-
+    width: 59px;
     font-weight: bold;
     color: #16a34a;
 }
@@ -168,16 +171,15 @@ input:disabled {
 ========================= */
 
 .summary-box {
-    width: 380px;
-    margin-left: auto;
+    width: 370px;
+    height: 120px;
     margin-top: 20px;
-    padding: 18px;
-
+    padding: 12px;
     background: #fff;
-    border: 1px solid #ddd;
+    border: 0.5px solid #ddd;
     border-radius: 10px;
 
-    box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
 }
 
 .summary-row {
@@ -219,6 +221,13 @@ input:disabled {
     transition: .2s;
 }
 
+#customerPaid::placeholder {
+    color: #b5b5b5;
+    opacity: 1;
+    /* Đảm bảo hiển thị đúng trên mọi trình duyệt */
+    font-style: italic;
+}
+
 #customerPaid:focus {
     outline: none;
     border-color: #1976d2;
@@ -234,10 +243,199 @@ input:disabled {
     font-weight: bold;
 }
 
+/* Địa chỉ */
+textarea {
+    width: 95%;
+    height: 55px;
+    padding: 10px 12px;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: inherit;
+    line-height: 1.5;
+
+    color: #333;
+    background: #fff;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    resize: vertical;
+    /* Chỉ cho kéo theo chiều dọc */
+
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+textarea::placeholder {
+    color: #b5b5b5;
+    font-style: italic;
+}
+
 /* Tổng tiền */
 
 #grandTotal {
     color: #d32f2f;
     font-size: 22px;
     font-weight: bold;
+}
+
+
+@media print {
+
+    /* Ẩn nút thêm dòng */
+    .add-row-btn {
+        display: none !important;
+    }
+
+    /* Ẩn nút + và - */
+    .plus,
+    .minus {
+        display: none !important;
+    }
+
+    /* Ẩn nút xóa */
+    .delete-row {
+        display: none !important;
+    }
+
+    /* Ẩn cả cột Xóa */
+    #productTable th:last-child,
+    #productTable td:last-child {
+        display: none !important;
+    }
+
+    /* Ô số lượng khi in */
+    .quantity {
+        border: none !important;
+        background: transparent !important;
+        width: 40px;
+        text-align: center;
+        appearance: textfield;
+    }
+
+    /* Ẩn mũi tên của input number */
+    .quantity::-webkit-outer-spin-button,
+    .quantity::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    @media print {
+
+        #customerPaid::placeholder {
+            color: transparent !important;
+        }
+
+    }
+
+
+    @media print {
+
+        /* Ẩn cột Xóa */
+        #productTable th:last-child,
+        #productTable td:last-child {
+            display: none !important;
+        }
+
+        /* Bảng chiếm toàn bộ chiều rộng */
+        #productTable {
+            width: 100% !important;
+            table-layout: fixed;
+        }
+
+        /* STT */
+        #productTable th:nth-child(1),
+        #productTable td:nth-child(1) {
+            width: 28px !important;
+        }
+
+        /* Sản phẩm */
+        #productTable th:nth-child(2),
+        #productTable td:nth-child(2) {
+            width: 50% !important;
+        }
+
+        /* Đơn giá */
+        #productTable th:nth-child(3),
+        #productTable td:nth-child(3) {
+            width: 19% !important;
+        }
+
+        /* Số lượng */
+        #productTable th:nth-child(4),
+        #productTable td:nth-child(4) {
+            width: 13% !important;
+        }
+
+        /* Thành tiền */
+        #productTable th:nth-child(5),
+        #productTable td:nth-child(5) {
+            width: 18% !important;
+        }
+    }
+
+    @media print {
+
+        .summary-box {
+            font-size: 12px;
+        }
+
+        .summary-row span {
+            font-size: 12px !important;
+        }
+
+        #customerPaid {
+            font-size: 12px !important;
+        }
+
+        #grandTotal,
+        #changeMoney {
+            font-size: 13px !important;
+            font-weight: bold;
+        }
+
+    }
+
+    #productTable thead th {
+        background: linear-gradient(#f8d86b, #f1c232);
+        color: #333;
+        font-weight: bold;
+        border: 1px solid #d4b24a;
+    }
+
+    #productTable {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    @media print {
+
+        #productTable thead th {
+            font-size: 11.4px;
+            font-weight: 600;
+
+
+            background: #f4c542;
+            color: #333;
+
+            border: 1px solid #444;
+
+            font-weight: bold;
+            text-align: center;
+
+            padding: 8px 6px;
+        }
+
+    }
 }

@@ -33,7 +33,7 @@ export default class ProductTable {
         this.table.innerHTML = `
             <thead>
                 <tr>
-                    <th style="width:32px!">STT</th>
+                    <th style="width:30px!">STT</th>
                     <th style="width:460px; margin-right: 15px">Sản phẩm</th>
                     <th style="width:100px; margin-right: 15px">Đơn giá</th>
                     <th style="width:109px">Số lượng</th>
