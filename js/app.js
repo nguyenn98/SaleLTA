@@ -1,4 +1,3 @@
-// // Điểm khởi động chương trình
 // import ProductTable from "./ProductTable.js";
 
 // class App {
@@ -16,11 +15,12 @@
 //         this.productTable.render();
 
 //         // ==========================
-//         // Phím tắt khách hàng
+//         // KHÁCH HÀNG
 //         // ==========================
 
 //         const customerInput = document.getElementById("customerName");
 
+//         // Danh sách mã khách hàng (dễ mở rộng)
 //         const customerMap = {
 //             "kl06": "Khách lẻ",
 //             "ghn": "GHN",
@@ -28,11 +28,8 @@
 //             "msb": "MSB",
 //         };
 
-//         customerInput.addEventListener("keydown", (e) => {
-
-//             if (e.key !== "Enter") return;
-
-//             e.preventDefault();
+//         // Hàm xử lý chung
+//         const resolveCustomer = () => {
 
 //             const code = customerInput.value.trim().toLowerCase();
 
@@ -40,6 +37,19 @@
 //                 customerInput.value = customerMap[code];
 //             }
 
+//         };
+
+//         // Enter
+//         customerInput.addEventListener("keydown", (e) => {
+//             if (e.key !== "Enter") return;
+
+//             e.preventDefault();
+//             resolveCustomer();
+//         });
+
+//         // Blur (click ra ngoài)
+//         customerInput.addEventListener("blur", () => {
+//             resolveCustomer();
 //         });
 
 //     }
@@ -48,12 +58,14 @@
 
 // new App().init();
 
+
 import ProductTable from "./ProductTable.js";
 
 class App {
 
     constructor() {
         this.productTable = null;
+        this.clockInterval = null;
     }
 
     init() {
@@ -65,12 +77,11 @@ class App {
         this.productTable.render();
 
         // ==========================
-        // KHÁCH HÀNG
+        // KHÁCH HÀNG (giữ nguyên)
         // ==========================
 
         const customerInput = document.getElementById("customerName");
 
-        // Danh sách mã khách hàng (dễ mở rộng)
         const customerMap = {
             "kl06": "Khách lẻ",
             "ghn": "GHN",
@@ -78,32 +89,53 @@ class App {
             "msb": "MSB",
         };
 
-        // Hàm xử lý chung
         const resolveCustomer = () => {
-
             const code = customerInput.value.trim().toLowerCase();
-
             if (customerMap[code]) {
                 customerInput.value = customerMap[code];
             }
-
         };
 
-        // Enter
         customerInput.addEventListener("keydown", (e) => {
             if (e.key !== "Enter") return;
-
             e.preventDefault();
             resolveCustomer();
         });
 
-        // Blur (click ra ngoài)
         customerInput.addEventListener("blur", () => {
             resolveCustomer();
         });
 
-    }
+        // ==========================
+        // ĐỒNG HỒ REALTIME
+        // ==========================
 
+        const clockEl = document.getElementById("clock");
+
+        const updateClock = () => {
+
+            const now = new Date();
+
+            const day = String(now.getDate()).padStart(2, "0");
+            const month = String(now.getMonth() + 1).padStart(2, "0");
+            const year = now.getFullYear();
+
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+
+            clockEl.innerHTML =
+                `<span> ${day}/${month}/${year}</span>
+     <span style="margin: 0 12px;">|</span>
+     <span> ${hours}:${minutes}:${seconds}</span>`;
+        };
+
+        // chạy ngay lập tức
+        updateClock();
+
+        // cập nhật mỗi giây
+        this.clockInterval = setInterval(updateClock, 1000);
+    }
 }
 
 new App().init();

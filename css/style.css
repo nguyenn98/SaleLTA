@@ -438,4 +438,11 @@ textarea::placeholder {
         }
 
     }
+
+    #clock {
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        padding: 6px 10px;
+    }
 }
