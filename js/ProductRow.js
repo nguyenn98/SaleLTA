@@ -213,16 +213,6 @@ export default class ProductRow {
     }
 
 
-    // setPrice(price) {
-
-    //     const input = this.element.querySelector(".price");
-
-    //     if (price === 0 || price === null || price === undefined) {
-    //         input.value = "";
-    //     } else {
-    //         input.value = price;
-    //     }
-    // }
     setPrice(price) {
 
         const input = this.element.querySelector(".price");

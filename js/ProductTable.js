@@ -54,13 +54,6 @@ export default class ProductTable {
         const footer = document.createElement("div");
         footer.className = "table-footer";
 
-        // footer.innerHTML = `
-        //     <div class="grand-total">
-        //         <span>Tổng tiền :</span>
-        //         <span id="grandTotal">0 đ</span>
-        //     </div>
-        // `;
-
         footer.innerHTML = `
         <div class="summary-box">
 
@@ -189,22 +182,6 @@ export default class ProductTable {
     /* =========================
         TOTAL CALC
     ========================== */
-    // updateGrandTotal() {
-
-    //     let total = 0;
-
-    //     this.rows.forEach(row => {
-
-    //         const el = row.getElement().querySelector(".line-total");
-
-    //         const value = Number(el?.dataset?.raw || 0);
-
-    //         total += value;
-    //     });
-
-    //     this.totalEl.textContent =
-    //         total.toLocaleString("vi-VN") + " đ";
-    // }
     updateGrandTotal() {
 
         let total = 0;
