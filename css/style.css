@@ -498,7 +498,8 @@ textarea::placeholder {
 
         }
 
-        .product-name {
+        /* Chữ trong ô nhập sản phẩm khi in */
+        #productTable .product-name {
             font-size: 15px;
         }
 
