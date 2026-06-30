@@ -200,28 +200,48 @@ export default class ProductRow {
         Price
     ====================== */
 
+
     // getPrice() {
-    //     return Number(this.element.querySelector(".price").value) || 0;
+    //     const value = this.element
+    //         .querySelector(".price")
+    //         .value
+    //         .replace(/\./g, "");
+
+    //     return Number(value) || 0;
     // }
     getPrice() {
         const value = this.element
             .querySelector(".price")
             .value
-            .replace(/\./g, "");
+            .trim();
 
-        return Number(value) || 0;
+        // Chỉ lấy các chữ số
+        const numberText = value.replace(/\D/g, "");
+
+        return Number(numberText) || 0;
     }
 
+    // setPrice(price) {
 
+    //     const input = this.element.querySelector(".price");
+
+    //     if (!price) {
+    //         input.value = "";
+    //     } else {
+    //         input.value = Number(price).toLocaleString("vi-VN");
+    //     }
+    // }
     setPrice(price) {
 
         const input = this.element.querySelector(".price");
 
-        if (!price) {
+        if (price === 0 || price === "" || price == null) {
             input.value = "";
-        } else {
-            input.value = Number(price).toLocaleString("vi-VN");
+            return;
         }
+
+        // Chỉ khi set từ code mới format
+        input.value = Number(price).toLocaleString("vi-VN");
     }
 
     /* =====================
@@ -267,25 +287,39 @@ export default class ProductRow {
         this.quantityInput.onChange(callback);
     }
 
+    // onPriceChange(callback) {
+
+    //     const input = this.element.querySelector(".price");
+
+    //     input.addEventListener("input", (e) => {
+
+    //         // Chỉ giữ lại các chữ số
+    //         let value = e.target.value.replace(/\D/g, "");
+
+    //         // Không hiển thị gì nếu rỗng
+    //         if (value === "") {
+    //             e.target.value = "";
+    //         } else {
+    //             // Hiển thị 1.000.000
+    //             e.target.value = Number(value).toLocaleString("vi-VN");
+    //         }
+
+    //         callback();
+    //     });
+    // }
     onPriceChange(callback) {
 
         const input = this.element.querySelector(".price");
 
         input.addEventListener("input", (e) => {
 
-            // Chỉ giữ lại các chữ số
-            let value = e.target.value.replace(/\D/g, "");
+            // Chỉ cho phép nhập số
+            e.target.value = e.target.value.replace(/\D/g, "");
 
-            // Không hiển thị gì nếu rỗng
-            if (value === "") {
-                e.target.value = "";
-            } else {
-                // Hiển thị 1.000.000
-                e.target.value = Number(value).toLocaleString("vi-VN");
-            }
-
+            // Không format ở đây
             callback();
         });
+
     }
 
     onProductChange(callback) {

@@ -213,7 +213,6 @@ export default class ProductTable {
         } else {
 
             this.changeMoneyEl.textContent =
-                "Thiếu " +
                 Math.abs(change).toLocaleString("vi-VN") +
                 " đ";
         }

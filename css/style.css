@@ -250,7 +250,7 @@ textarea {
     padding: 10px 12px;
     resize: none;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: 14px;
     font-family: inherit;
     line-height: 1.5;
 
@@ -358,6 +358,7 @@ textarea::placeholder {
         #productTable th:nth-child(1),
         #productTable td:nth-child(1) {
             width: 28px !important;
+            font-size: 10px;
         }
 
         /* Sản phẩm */
@@ -382,26 +383,29 @@ textarea::placeholder {
         #productTable th:nth-child(5),
         #productTable td:nth-child(5) {
             width: 18% !important;
+            font-size: 10px;
         }
     }
 
     @media print {
 
         .summary-box {
-            font-size: 12px;
+            font-size: 11px;
+            width: 360px;
+            height: 85px;
         }
 
         .summary-row span {
-            font-size: 12px !important;
+            font-size: 11px !important;
         }
 
         #customerPaid {
-            font-size: 12px !important;
+            font-size: 11px !important;
         }
 
         #grandTotal,
         #changeMoney {
-            font-size: 13px !important;
+            font-size: 11px !important;
             font-weight: bold;
         }
     }
@@ -428,7 +432,63 @@ textarea::placeholder {
             border: 1px solid #444;
             font-weight: bold;
             text-align: center;
-            padding: 8px 6px;
+            padding: 3px 4px !important;
+        }
+
+    }
+
+    @media print {
+
+        #productTable input[type="text"],
+        #productTable input[type="number"] {
+
+            height: 15px !important;
+            min-height: 15px !important;
+
+            padding: 0 2px !important;
+
+            font-size: 10px !important;
+
+            border: none !important;
+
+            box-shadow: none !important;
+
+            border-radius: 0 !important;
+        }
+
+        .price {
+            text-align: center;
+        }
+        .line-total{
+            text-align: center;
+        }
+
+        #productTable tbody td {
+
+            padding: 1px 3px ;
+
+            height: 18px ;
+
+            line-height: 16px ;
+
+        }
+
+        #productTable tbody tr {
+
+            height: 18px !important;
+
+        }
+
+        .quantity-box {
+
+            gap: 0 !important;
+
+            margin: 0 !important;
+
+            padding: 0 !important;
+
+            min-height: 15px !important;
+
         }
 
     }
