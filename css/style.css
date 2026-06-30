@@ -502,12 +502,29 @@ textarea::placeholder {
         #productTable .product-name {
             font-size: 14px !important;
         }
+
+        #productTable .class {
+            font-size: 14px !important;
+        }
+
+        #productTable .price {
+            font-size: 14px !important;
+        }
+
+        #productTable .quantity-box {
+            font-size: 14px !important;
+        }
+
+        #productTable .line-total {
+            font-size: 14px !important;
+        }
+
         #productTable td:nth-child(2) input,
         #productTable td:nth-child(3) input,
         #productTable td:nth-child(4) input,
         #productTable td:nth-child(5) {
             font-size: 14px !important;
-            font-weight: 500
+            font-weight: 500;
         }
 
     }
