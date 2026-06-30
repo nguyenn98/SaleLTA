@@ -500,12 +500,14 @@ textarea::placeholder {
 
         /* Chữ trong ô nhập sản phẩm khi in */
         #productTable .product-name {
-            font-size: 15px !important;
+            font-size: 14px !important;
         }
-
-        #productTable td:nth-child(2) input {
-            font-size: 12px !important;
-            font-weight: 500;
+        #productTable td:nth-child(2) input,
+        #productTable td:nth-child(3) input,
+        #productTable td:nth-child(4) input,
+        #productTable td:nth-child(5) {
+            font-size: 14.4px !important;
+            font-weight: 500
         }
 
     }
