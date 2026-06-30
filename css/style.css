@@ -358,7 +358,7 @@ textarea::placeholder {
         #productTable th:nth-child(1),
         #productTable td:nth-child(1) {
             width: 28px !important;
-            font-size: 10px;
+            font-size: 14px;
         }
 
         /* Sản phẩm */
