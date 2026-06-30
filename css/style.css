@@ -41,7 +41,7 @@ thead {
 
 thead th {
     padding: 9px;
-    font-size: 14px;
+    font-size: 15px;
     text-align: left;
 }
 
@@ -359,6 +359,7 @@ textarea::placeholder {
         #productTable td:nth-child(1) {
             width: 28px !important;
             font-size: 14px !important;
+            text-align: center !important;
         }
 
         /* Sản phẩm */
@@ -528,6 +529,10 @@ textarea::placeholder {
         #productTable td:nth-child(5) {
             font-size: 14px !important;
             font-weight: 450;
+        }
+
+        #productTable .product-name::placeholder {
+            color: transparent !important;
         }
 
     }
