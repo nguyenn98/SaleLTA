@@ -174,7 +174,7 @@ input:disabled {
     width: 370px;
     height: 120px;
     margin-top: 20px;
-    padding: 12px;
+    padding: 15px;
     background: #fff;
     border: 0.5px solid #ddd;
     border-radius: 10px;
@@ -186,7 +186,6 @@ input:disabled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 14px;
 }
 
@@ -339,7 +338,6 @@ textarea::placeholder {
 
     }
 
-
     @media print {
 
         /* Ẩn cột Xóa */
@@ -391,9 +389,12 @@ textarea::placeholder {
     @media print {
 
         .summary-box {
+            width: 270px;
             font-size: 11px;
-            width: 360px;
             height: 85px;
+            border: none;
+            box-shadow: none;
+            padding: 12px;
         }
 
         .summary-row span {
@@ -402,6 +403,8 @@ textarea::placeholder {
 
         #customerPaid {
             font-size: 11px !important;
+            width: 150px;
+            border: none;
         }
 
         #grandTotal,
@@ -436,6 +439,9 @@ textarea::placeholder {
             padding: 3px 4px !important;
         }
 
+        .table-footer {
+            padding: 5px;
+        }
     }
 
     @media print {
